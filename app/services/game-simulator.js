@@ -4,8 +4,17 @@ import { later } from '@ember/runloop';
 //Can check in the ember-composable-helpers github opensource to find the helper functions I need and just import it here to use it.
 import { shuffle } from 'ember-composable-helpers/helpers/shuffle';
 
+import { computed } from '@ember/object';
+
+const DELAY_BETWEEN_GAMES = 100;
+
 export default Service.extend({
   store: inject(),
+
+  //FYI - Arrow functions don't work for callbacks.
+  games: computed(function() {
+    return this.store.peekAll('game');
+  }),
 
   init() {
     this._super(...arguments);
@@ -14,7 +23,7 @@ export default Service.extend({
 
     this.seedTeams();
 
-    later(this, this.simulateGame, 1000);
+    later(this, this.simulateGame, DELAY_BETWEEN_GAMES);
   },
 
   seedTeams() {
@@ -39,11 +48,20 @@ export default Service.extend({
     let homeGoals = this.randomScore(4);
     let awayGoals = this.randomScore(3);
 
-    console.log(homeGoals)
-    console.log(awayGoals)
+    this.store.createRecord('game', {
+      homeTeam,
+      awayTeam,
+      homeGoals,
+      awayGoals,
+      playedOn: new Date()
+    });
+
+    later(this, this.simulateGame, DELAY_BETWEEN_GAMES);
   },
 
   randomScore(maximumGoals) {
     return Math.round(Math.random() * maximumGoals)
   }
 });
+
+//After creating and seeding the models, pass in the generated data to the components.

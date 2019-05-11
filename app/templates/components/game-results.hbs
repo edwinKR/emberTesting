@@ -1,4 +1,6 @@
-[Game results]
+[Game results {{@games.length}}]
 
-
-{{!-- {{yield}} --}}
+{{!-- ember-composer-helper: take, reverse --}}
+{{#each (take 25 (reverse @games)) as |game|}}
+  <br> {{game.homeTeam.name}} [{{game.homeGoals}}] vs [{{game.awayGoals}}] {{game.awayTeam.name}}
+{{/each}}

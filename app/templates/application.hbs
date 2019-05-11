@@ -1,14 +1,16 @@
-<h1 class="text-blue">Ember Leage Table</h1>
+<div class="flex">
+  <div class="flex-1 bg-red h-screen">
+    {{!-- Old way of importing .hbs files 👇👇--}}
+    {{!-- {{game-results}} --}}
+    {{!-- New way of importing below. --}}
+    <GameResults @games={{this.gameSimulator.games}} />
+  </div>
 
-{{!-- Instantiate the service --}}
-{{gameSimulator}}
+  <div class="flex-1 bg-blue h-screen">
+    <LeagueTable @games={{this.gameSimulator.games}} />
+  </div>
+</div>
 
-{{!-- Old way of importing .hbs files 👇👇--}}
-{{!-- {{game-results}} --}}
-{{!-- New way of importing below. --}}
-<GameResults />
 
 <hr>
 
-{{!-- {{league-table}} --}}
-<LeagueTable />
