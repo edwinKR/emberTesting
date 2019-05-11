@@ -1,8 +1,7 @@
 # emberTesting
 First time using Ember.js (Simple app creation)
 
-============
-#Ember default notes below:
+# Ember default notes below:
 
 # ember-league-table
 
