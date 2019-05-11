@@ -12,6 +12,10 @@ export default Service.extend({
   store: inject(),
 
   //FYI - Arrow functions don't work for callbacks.
+  teams: computed(function() {
+    return this.store.peekAll('team');
+  }),
+
   games: computed(function() {
     return this.store.peekAll('game');
   }),
