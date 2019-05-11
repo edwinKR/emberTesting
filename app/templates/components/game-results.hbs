@@ -1,6 +1,25 @@
-[Game results {{@games.length}}]
+<h2 class="text-black text-center">Games played: {{@games.length}}</h2>
 
 {{!-- ember-composer-helper: take, reverse --}}
+{{!-- Also adding styling: padding, margin, flex...etc --}}
 {{#each (take 25 (reverse @games)) as |game|}}
-  <br> {{game.homeTeam.name}} [{{game.homeGoals}}] vs [{{game.awayGoals}}] {{game.awayTeam.name}}
+
+  <div class="bg-blue-light p-2 m-2 flex font-bold text-sm">
+
+    <div class="bg-yellow flex-1 text-right p-2">
+      {{game.homeTeam.name}}
+    </div>
+
+    <div class="bg-green flex-shrink border-r-2 border-red-dark p-2">
+      [{{game.homeGoals}}]
+    </div>
+
+    <div class="bg-green flex-shrink border-l-2 border-red-dark p-2">
+      [{{game.awayGoals}}]
+    </div>
+
+    <div class="bg-yellow flex-1 p-2">
+      {{game.awayTeam.name}}
+    </div>
+  </div>
 {{/each}}
