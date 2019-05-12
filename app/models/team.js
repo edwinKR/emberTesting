@@ -15,8 +15,8 @@ export default Model.extend({
   gamesPlayed: union('homeGames', 'awayGames'),
 
   //filter games that meet the 'isDraw' computed boolean property created in the game model.
-  gamesDrawn: filterBy('games', 'isDraw'),
+  gamesDrawn: filterBy('gamesPlayed', 'isDraw'),
 
-  gamesWon: filterBy('games', 'isWon'),
-  gamesLost: filterBy('games', 'isLost'),
+  gamesWon: filterBy('gamesPlayed', 'isWon'),
+  gamesLost: filterBy('gamesPlayed', 'isLost'),
 });
