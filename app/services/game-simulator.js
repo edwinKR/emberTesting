@@ -6,7 +6,7 @@ import { shuffle } from 'ember-composable-helpers/helpers/shuffle';
 
 import { computed } from '@ember/object';
 
-const DELAY_BETWEEN_GAMES = 100;
+const DELAY_BETWEEN_GAMES = 1000;
 
 export default Service.extend({
   store: inject(),
@@ -31,7 +31,18 @@ export default Service.extend({
   },
 
   seedTeams() {
-    let teamNames = ['Team1', 'Team2', 'Team3', 'Team4'];
+    let teamNames = [
+      'Bulls',
+      'G.State',
+      'Rockets',
+      'Heats',
+      'Knicks',
+      'Lakers',
+      'Clippers',
+      'Nets',
+      'Jazz',
+      'Celtics'
+    ];
 
     //Create a model
     for (let i = 0; i < teamNames.length; i++) {

@@ -1,8 +1,8 @@
-<h2 class="text-black text-center">Games played: {{@games.length}}</h2>
+<h2 class="text-black text-center text-4xl">Games played: {{@games.length}}</h2>
 
 {{!-- ember-composer-helper: take, reverse --}}
 {{!-- Also adding styling: padding, margin, flex...etc --}}
-{{#each (take 25 (reverse @games)) as |game|}}
+{{#each (take 8 (reverse @games)) as |game|}}
 
   <div class="bg-blue-light p-2 m-2 flex font-bold text-sm">
 

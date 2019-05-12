@@ -12,15 +12,23 @@ export default Model.extend({
   awayGoals: DS.attr('number'),
   playedOn: DS.attr('date'),
 
-  isWon: computed('homeGoals', 'awayGoals', function() {
-    return this.homeGoals > this.awayGoals
-  }),
 
   isDraw: computed('homeGoals', 'awayGoals', function() {
     return this.homeGoals === this.awayGoals
   }),
 
-  isLost: computed('homeGoals', 'awayGoals', function() {
+  isHomeWin: computed('homeGoals', 'awayGoals', function() {
+    return this.homeGoals > this.awayGoals
+  }),
+  isAwayWin: computed('homeGoals', 'awayGoals', function() {
     return this.homeGoals < this.awayGoals
   }),
+
+  winningTeam: computed('isHomeWin', 'isAwayWin', 'homeTeam', 'awayTeam', function() {
+    if (this.isHomeWin) {
+      return this.homeTeam;
+    } else if (this.AwayWin) {
+      return this.awayTeam;
+    }
+  })
 });
