@@ -3,7 +3,7 @@ First time using Ember.js (Simple app creation). Followed a tutorial video just 
 
 ## Installation
 
-* `git clone <repository-url>` this repository
+* `git clone <this repository>`
 * `cd ember-league-table`
 * `npm install`
 
