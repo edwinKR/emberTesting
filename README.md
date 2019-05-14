@@ -1,4 +1,5 @@
-# emberTesting
+# ember-Testing
+## Project: 'Mini NBA basketball league table generator'
 First time using Ember.js (Simple app creation). Followed a tutorial video just to get the taste of it.
 
 ## Installation
